@@ -3,7 +3,7 @@ package com.groupn.quiz;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class ConnectionTest {
+public class JdbcConnection {
 	
 	Connection connection = null;
 	public Connection getConnectionDetails() {
