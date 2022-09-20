@@ -11,39 +11,52 @@ public class UserExam {
 		try {
 			JdbcConnection connectionTest = new JdbcConnection();
 			conn=connectionTest.getConnectionDetails();
-			preState =conn.prepareStatement("insert into candidatedata(id,firstName,lastName,score,grade)values(?,?,?,?,?)");  //id,  //?,
+			preState =conn.prepareStatement("insert into data(id,firstName,lastName,score,grade)values(?,?,?,?,?)");  //id,  //?,
 			preState.setInt(1,id);
 			preState.setString(2,firstName);
 			preState.setString(3,lastName);
 			preState.setInt(4,score);
 			preState.setString(5,grade);
 			int i = preState.executeUpdate();
-			System.out.println("record is inserted successfully"+i);
-			System.out.println("*********************************");
+			System.out.println();
+			System.out.println("Record is inserted successfully"+i);
+			System.out.println();
+			System.out.println("************************************************");
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println();
 		}
 	}
 	public static void input() throws Throwable{
 		Scanner sc = new Scanner(System.in);
 		int id;
+		
 		do {
-			System.out.println("Enter ID :");
+			System.out.print("Enter ID : ");
 			while(!sc.hasNextInt()) {
+				System.out.println("-----------------------------------------------");
 		        System.out.println("Only numbers are accepted");
-		        System.out.println("Please Enter ID again:");
+		        System.out.print("Please Enter ID again : ");
 		        sc.next();
 		    }
 			id = sc.nextInt();
 		}while (id <= 0);
-		System.out.println("Enter First Name : ");
+		System.out.println("-----------------------------------------------");
+		
+		System.out.print("Enter First Name : " );
 		String firstName = sc.next();
-		System.out.println("Enter Last Name : ");
+		
+		System.out.println("-----------------------------------------------");
+		
+		System.out.print("Enter Last Name : ");
 		String lastName = sc.next();
+		System.out.println("-----------------------------------------------");
+		System.out.println();
+		System.out.println("***********************Quiz Started***********************");
+		System.out.println();
 		QuestionsSet j = new QuestionsSet();
 		j.questions();
 		int score = QuestionsSet.akss;
-		System.out.println("Score ="+score);
+		System.out.println("Score = "+score);
 		String grade = null;
 		if(score >= 8 && score <= 10) {
 			grade = "A";
@@ -54,14 +67,11 @@ public class UserExam {
 		}else {
 			grade = "D";
 		}
-		System.out.println("You got "+grade+" Grade");
+		System.out.println("You got "+grade+" Grade.");
+		System.out.println("-----------------------------------------------");
 		// don't edit anything from here	
 		UserExam userInput = new UserExam();
-		userInput.insertCandidateData(id, firstName, lastName, score, grade);  //id,
+		userInput.insertCandidateData(id, firstName, lastName, score, grade);  
 		
 	}
 }
-//Class A- 8-10
-//Class B- 6-8
-//Class C- 5
-//Class D- <5 then its fail>

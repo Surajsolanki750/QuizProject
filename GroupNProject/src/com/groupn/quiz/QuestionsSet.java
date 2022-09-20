@@ -60,13 +60,14 @@ public class QuestionsSet {
 		while (itr.hasNext()) {
 			HashMap.Entry<String, String> entry = itr.next();  
 			System.out.println(entry.getKey());
-			System.out.println("enter ur ans");
+			System.out.print("Enter your Answer : ");
 			String answer = sc.nextLine();
+			System.out.println("-----------------------------------------------");
 			if (answer.equals(entry.getValue())) {
 				score++;		
 			}
 		}
-		System.out.println("u got" + "=" + score + "/" + que.size());	
+		System.out.println("Your Score " + "= " + score + "/" + que.size());	
 		
 		akss = score;
 	}
