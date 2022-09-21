@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 
 public class DisplayResult {
-	
+	 
 	
 	public static void check() throws Throwable {
 		

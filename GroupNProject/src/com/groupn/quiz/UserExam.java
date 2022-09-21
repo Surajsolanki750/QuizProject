@@ -1,7 +1,10 @@
 package com.groupn.quiz;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserExam { 
@@ -22,21 +25,38 @@ public class UserExam {
 			System.out.println("Record is inserted successfully"+i);
 			System.out.println();
 			System.out.println("************************************************");
+			ScannerSS.scannerSS();
 		} catch (Exception e) {
 			System.out.println();
 		}
 	}
 	public static void input() throws Throwable{
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro","root","Akash@525");
+			PreparedStatement ps = connection.prepareCall("select * from data");
+			ResultSet rs = ps.executeQuery();
+			ArrayList<Integer> idColumn = new ArrayList<Integer>();
+			while (rs.next()) {
+				idColumn.add(Integer.valueOf(rs.getInt(1)));
+			}	
+		int id ;
 		Scanner sc = new Scanner(System.in);
-		int id;
-		
+		FetchStudentData fsd = new FetchStudentData();
+	
 		do {
 			System.out.print("Enter ID : ");
-			while(!sc.hasNextInt()) {
+			if(!sc.hasNextInt()) { 
 				System.out.println("-----------------------------------------------");
-		        System.out.println("Only numbers are accepted");
-		        System.out.print("Please Enter ID again : ");
-		        sc.next();
+		        System.out.println("Only numbers are accepted\n"+ "Please Enter ID again");
+		        System.out.println("-----------------------------------------------");
+		        UserExam.input();
+			}
+			System.out.println("Please Enter ID again ");
+		    if(idColumn.contains(sc.nextInt())){
+		    System.out.println("ID is already present in database ");
+		    System.out.println("-----------------------------------------------");
+		    UserExam.input();
 		    }
 			id = sc.nextInt();
 		}while (id <= 0);
@@ -69,9 +89,15 @@ public class UserExam {
 		}
 		System.out.println("You got "+grade+" Grade.");
 		System.out.println("-----------------------------------------------");
-		// don't edit anything from here	
+		
 		UserExam userInput = new UserExam();
 		userInput.insertCandidateData(id, firstName, lastName, score, grade);  
 		
-	}
+		}catch(Exception e){
+			e.printStackTrace();
+			
+		}
+	
+	} 
+		
 }

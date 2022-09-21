@@ -70,5 +70,5 @@ public class QuestionsSet {
 		System.out.println("Your Score " + "= " + score + "/" + que.size());	
 		
 		akss = score;
-	}
+	} 
 }

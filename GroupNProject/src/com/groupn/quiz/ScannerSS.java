@@ -11,13 +11,13 @@ public class ScannerSS {
 		System.out.println("-----------------------------------------------");
 		Scanner pt = new Scanner(System.in);
 		int select ;
-		select = pt.nextInt();
+		select = pt.nextInt(); 
 		switch(select) {
 		case 1:
 		Quiz.usermenu();
 		break;
 		case 2:
-		System.out.println("--------------------Thank You--------------------");
+		System.out.println("--------------------****Thank You****--------------------");
 		System.exit(1);
 		break;
 		default:

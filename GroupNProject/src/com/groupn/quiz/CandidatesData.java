@@ -23,7 +23,6 @@ public class CandidatesData {
 				System.out.println("Surname : "+rs.getString(3));
 				System.out.println("Score : "+rs.getString(4));
 				System.out.println("Grade : "+"\""+rs.getString(5)+"\"");
-				
 				System.out.println("-----------------------------------------------");
 				
 			}
@@ -34,4 +33,4 @@ public class CandidatesData {
 			e.printStackTrace();
 		}
 	
-	}}
+	}} 

@@ -17,7 +17,6 @@ public class Quiz {
 		case 1:
 	    System.out.println("-----------------------------------------------");	
 		UserExam.input();
-		ScannerSS.scannerSS();
 		break;
 		case 2:
 		System.out.println("-----------------------------------------------");
@@ -44,4 +43,4 @@ public class Quiz {
 		System.out.println("-------------------------*WELCOME*--------------------------");
 		usermenu();
 	}
-}
+} 

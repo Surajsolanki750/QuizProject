@@ -12,7 +12,7 @@ public class FetchStudentData {
 	
 	
 	public static void studentData() {
-		
+		 
 		try {
             int index ;
 			
@@ -23,7 +23,7 @@ public class FetchStudentData {
 			System.out.print("Enter Id = ");
 			Scanner su = new Scanner(System.in);
 			String ak = su.next();
-			System.out.println("----------------------------------------------------");
+			System.out.println("-----------------------------------------------");
 			ArrayList<String> idColumn = new ArrayList<String>();
 			ArrayList<String> firstName = new ArrayList<String>();
 			ArrayList<String> lastName = new ArrayList<String>();
